@@ -1,0 +1,301 @@
+
+
+{% include "stylesheet.html"%}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+  
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+  
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+  /* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+</style>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+       
+				<div class="d-flex justify-content-end social_icon">
+          <span>
+          
+          </span>
+				</div>
+			</div>
+			<div class="card-body">
+        
+      <form action="/login" method="post" id="my_form">
+        {% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="User Name" id="user">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+           
+						<input type="password" class="form-control" placeholder="Password"  id="pass">
+            <div class="input-group-prepend">
+							<span class="input-group-text" style="color: black;
+              background-color: white;" onclick="myFunction()"><i class="fas fa-eye"></i></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+       <div>
+         <p id="invalid1" style="color: darkred;"></p>
+       </div>
+
+        <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                          <div class="panel panel-default">
+                              <div class="panel-body">
+                                  <div class="text-center">
+                                    
+                                    <p>If you have forgotten your password you can reset it here.</p>
+                                    <div class="panel-body">
+
+                                     
+                        
+                                          <div class="form-group">
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                              </div>
+                                              <input id="email" name="email" placeholder="Enter Email ID " class="form-control"  type="email" required>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <input name="recover-submit"  data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-lg btn-primary btn-block" id="submit1" value="Submit" type="submit">
+                                          </div>
+
+
+                                          <div id="model" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                                          aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                       <div class="modal-dialog modal-sm">
+                                         <div class="modal-content">
+                                           
+                                         <div id="smallp">
+                                             
+                                         </div>
+                                         <div class="col-md-12">
+                                            <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true" id="relo" >Cancel</button>
+                                            </div>	
+                                         </div>
+                                       </div>
+                                         </div>
+
+
+                                          
+                                          <input type="hidden" class="hide" name="token" id="token" value=""> 
+                                   
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div id="model" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+               aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                
+              <div id="smallp">
+                  
+              </div>
+              </div>
+            </div>
+          </div>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center">
+          <a href="#"class="d-flex justify-content-center" data-target="#pwdModal" data-toggle="modal" >Forgot my password</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% include "passwordDisplay.html"%}
+<script>
+  $(document).on("submit", "#my_form", function(e){
+    e.preventDefault();
+    $.ajax({
+      url:"/",
+      method:"POST",
+      data : {"userName":$("#user").val(), "password":$("#pass").val(),  csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()},
+      success(result){
+        if (result.code == 200){
+          alert("fs"+result.token);
+          localStorage.setItem("token", result.token)
+          var dashboard_url = '/file_upload';
+           
+           window.open(dashboard_url, "_self")
+          // window.open("/file_upload", "_self")
+          // if (result.message == "Please change password"){
+          //   localStorage.setItem("role",result.role);
+          //   localStorage.setItem("user_name",result.user_name);
+          //   localStorage.setItem("user_id",result.user_id);
+
+          //   var dashboard_url = '/users/expiryChangepassword';
+          //   window.open(dashboard_url, "_self")
+            
+          // }
+          // else{
+          //   var dashboard_url = '/assignSystem';
+           
+          //  window.open(dashboard_url, "_self")
+          // }
+          
+        }
+        else {
+          alert(result.message);
+          $("#invalid1").append(result.message)
+          // $("#invalid1").show().delay(100).fadeOut(1000);}
+        }
+        }
+    })
+  })
+</script>
+<script>
+  $("#submit1").click(function(){
+   
+    $.ajax({
+        url: "/users/forgetPassword",
+        method: "POST",
+        dataType: 'json',
+        data: {"emailId":$("#email").val()},
+        cache: false,
+        success(response){
+          if (response.code == 200){
+            
+            $("#smallp").append('<h3>'+response.message+'</h3>'); 
+          }
+          else{
+        
+            $("#smallp").append('<h2>'+response.message+'</h2>'); 
+          }
+        }
+      });
+  })
+</script>
+<script>
+  $("#relo").click(function(){
+    window.location.reload();
+  })
+</script>
+</body>
+</html>

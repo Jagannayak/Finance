@@ -1,0 +1,16 @@
+<script>
+    $("#logout").click(function(){
+       
+       $.ajax({
+           url:"/users/logout",
+           method:"GET",
+           cache:false,
+           async:false,
+           success(response){  
+           }
+   
+   
+       })
+       window.open("/login", "_self")
+   })
+</script>

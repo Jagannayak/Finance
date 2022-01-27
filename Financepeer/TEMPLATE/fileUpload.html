@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+  
+  <html lang="en"  >
+   
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{selfData.role}}</title>
+
+    <!-- Custom fonts for this template-->
+    <!-- <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+<script type="text/javascript" src="DataTables/datatables.min.js"></script> -->
+
+
+
+    {%include "csslinks.html"%}
+   
+<style>
+    .scroll {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+</style>
+</head>
+
+
+<body id="page-top">
+  
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+     
+       {% include "sidebar.html"%}
+      
+        <div id="content-wrapper" class="d-flex flex-column " >
+            <div id="content" >
+
+               {% include "header.html"%}
+              
+                <div class="topbar-divider d-none d-sm-block"></div>
+                <div class="container">
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+                        <label class="custom-file-label" for="customFileInput">Select file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="fileUplaod">Upload</button>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <br>
+                  <br>
+                  {% for i in fileData %}
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                   
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">{{i.title}}</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                          {{i.body}}
+                        </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                    <!--  -->
+                    </div>
+
+             
+                  </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+   
+  
+ 
+    {% include "stylesheet.html"%}
+       
+    <script  src="/static/JqueryFiles/js/index.js"></script>
+</body>
+
+</html>

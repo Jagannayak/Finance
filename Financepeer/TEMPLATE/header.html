@@ -1,0 +1,89 @@
+
+ <nav class="navbar navbar-expand navbar-light bg-blue topbar mb-4 static-top shadow " style="background-color: #224abe;">
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="navbar-nav ml-auto">
+          </section>
+         <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline " style="color: whitesmoke;margin-right:6%;font-family: Arial, Helvetica, sans-serif;font-size: 15px;">Time :</span>
+                <span class="navbar-brand mb-0 h1 " id="ct5" style="color: whitesmoke;margin-right:6%;font-family: Arial, Helvetica, sans-serif;font-size: 15px;"></span>
+            </a>
+         </li>
+
+         <li>
+             <div id="Date">
+
+             </div>
+         </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+      
+         <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- <span class="mr-2 d-none d-lg-inline  " style="color: whitesmoke;margin-right:6%;font-family: Arial, Helvetica, sans-serif;font-size: 15px;">Welcome : {{ selfData.firstName }} | Role: {{ selfData.role }}</span> -->
+                <i class="fa fa-power-off"  id="logout" style="color: red;" title="Logout"></i>
+            </a>
+        </li> 
+    </ul>
+
+</nav>
+
+
+
+
+<script>
+         const date = new Date();
+        
+        const formattedDate = date.toLocaleString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit"
+        });
+        
+        console.log(formattedDate);
+        document.getElementById("datetime").innerHTML = formattedDate;
+
+  
+</script>
+
+<script>
+    
+    function display_ct5() {
+    const month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "Mar";
+    month[3] = "Apr";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+    var x = new Date()
+    var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+    
+    var x1=x.getDate()+" "+month[x.getMonth()] + " " +  x.getFullYear(); 
+    // var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+    console.log(x1)
+    x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
+    document.getElementById('ct5').innerHTML = x1;
+    display_c5();
+     }
+     function display_c5(){
+    var refresh=1000; // Refresh rate in milli seconds
+    mytime=setTimeout('display_ct5()',refresh)
+    }
+    display_c5()
+</script>
+    <span id='ct5' style="background-color: #FFFF00"></span>
+
+

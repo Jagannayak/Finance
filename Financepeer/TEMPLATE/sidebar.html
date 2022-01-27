@@ -1,0 +1,43 @@
+
+<ul  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion nav " id="navMenus">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+        <!-- <img src="/static/logo.png" height="50" width="50"> -->
+     </a>
+     <hr class="sidebar-divider">
+    {% for menu_name in NavLinkLeftData %} 
+     {% ifequal menu_name.nav_permission_key 'assignSystem'  %}
+    <li class="nav-item navMenus active">
+        <a href="#" class="nav-link collapsed" id="{{menu_name.nav_permission_key}}">
+            <i class="{{menu_name.nav_icon}}"></i>
+            <span  class="menuPageid" id="{{menu_name.nav_permission_key}}">{{menu_name.nav_display_name}}</span>
+        </a>
+    </li>
+    {% else %}
+   
+    <li class="nav-item">
+        <a href="#" class="nav-link collapsed" id="{{menu_name.nav_permission_key}}">
+            <i class="{{menu_name.nav_icon}}"></i>
+            <span  class="menuPageid" id="{{menu_name.nav_permission_key}}">{{menu_name.nav_display_name}}</span>
+        </a>
+    </li>
+    {% endifequal %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $("#{{menu_name.nav_permission_key}}").click(function(){
+           //localStorage.setItem("key","{{menu_name.nav_permission_key}}")
+            var changeUrl = "{{menu_name.nav_target_url}}"
+            window.open(changeUrl, "_self")
+            // alert("changeUrl"+changeUrl)
+        })
+    </script>
+    {% endfor %}
+    <div class="brand-logo">
+    </div>
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>
+
+
+
+
